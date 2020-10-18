@@ -13,7 +13,7 @@ void listar(pessoa *agenda);
 void apagar(pessoa *agenda);
 
 
-int main(int argc, char const *argv[])
+int main()
 {
     int op;
     pessoa *agenda;

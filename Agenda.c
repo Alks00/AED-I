@@ -20,7 +20,7 @@ void buscar(var *aux);
 void listar(var *aux);
 
 
-int main(int argc, char const *argv[])
+int main()
 {
     var *aux;
     pessoa *nome;
