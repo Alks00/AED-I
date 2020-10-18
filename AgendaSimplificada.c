@@ -19,7 +19,7 @@ int main()
     pessoa *agenda;
     
     if((agenda =(pessoa *) malloc(sizeof(pessoa)))==NULL){
-		printf("Memoria Insuficiente");
+		printf("Memoria Insuficiente\n");
 		exit(1);
 	}
     agenda -> prox = NULL;
@@ -30,7 +30,7 @@ int main()
         printf("Incluir: 1\n");
         printf("Listar: 2\n");
         printf("Apagar: 3\n");
-        printf("Sair: 4\n");
+        printf("Sair: 4\n\n");
 
         scanf("%d", &op);
 
@@ -49,7 +49,7 @@ int main()
             break;
 
         default:
-        printf("Opção inválida!");
+        printf("Opção inválida!\n");
             break;
         }
     } while (op != 4);
@@ -76,9 +76,10 @@ void listar(pessoa *agenda){
     pessoa *aux;
     int cont = 1;
 
-    for (aux = agenda; aux != NULL; aux -> prox)
+    for (aux = agenda -> prox; aux != NULL; )
     {
-        printf("%d - %s \n", &cont, aux -> nome);
+        printf("%d - %s \n", cont, aux -> nome);
+        aux = aux -> prox;
         cont++;
     }
     
@@ -104,6 +105,6 @@ void apagar(pessoa *agenda){
 		printf("Nome apagado com sucesso!\n");
 	}
 	else
-		printf("Nome não encontrado!");
+		printf("Nome não encontrado!\n\n");
 }
 
