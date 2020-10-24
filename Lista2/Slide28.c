@@ -66,10 +66,8 @@ void add(Pessoa *pInicial){
     }*/
     
     printf("Digite o nome: \n");
-    //scanf("%[^\n]s", aux->nome);
-    //setbuf(stdin, NULL);
     getchar();
-    fgets(pInicial->nome,30,stdin);
+    fgets(aux->nome,30,stdin);
 
     printf("Digite a idade: \n");
     scanf("%d", &aux->idade);
@@ -86,11 +84,15 @@ void add(Pessoa *pInicial){
 void imprime(Pessoa *pInicial){
     Pessoa *aux;
     aux = pInicial;
-    for(int i=0;i <= pInicial->cont;i++){
-        printf("Nome: %s\n", aux->nome);
-        printf("Idade: %d\n", aux->idade);
-        printf("Altura(cm): %d\n\n", aux->altura);
+    
+    if(aux->prox != NULL){
         aux = aux->prox;
+        for(int i=1;i <= pInicial->cont;i++){
+            printf("Nome: %s\n", aux->nome);
+            printf("Idade: %d\n", aux->idade);
+            printf("Altura(cm): %d\n\n", aux->altura);
+            aux = aux->prox;
+        }
     }
 
 }
